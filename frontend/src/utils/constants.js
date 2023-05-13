@@ -1,4 +1,4 @@
-export const URL = "http://api.kramarvik.kupipodarid.nomoredomains.monster";
+export const URL = "https://api.kramarvik.kupipodarid.nomoredomains.monster";
 
 export const MINIMUM_PASSWORD_LENGTH = 3;
 export const MINIMUM_USERNAME_LENGTH = 3;
