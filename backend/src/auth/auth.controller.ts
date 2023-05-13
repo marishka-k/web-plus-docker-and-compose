@@ -5,7 +5,7 @@ import { LocalAuthGuard } from './local-auth.guard';
 import { RequestWithUser } from 'src/utils/request-with-user';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
 
-@Controller('auth')
+@Controller()
 export class AuthController {
   constructor(
     private authService: AuthService,
