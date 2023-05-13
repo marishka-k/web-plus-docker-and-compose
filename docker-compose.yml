@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  backend:
+    container_name: backend
+    build: 
+      context: backend
+      dockerfile: Dockerfile
+    image: kpd-backend-release:1.0.0
+    env_file: .env
+    restart: always
+    ports:
+      - '4000:3000'
+    depends_on:
+      - postgres
+    networks:
+      - backend
+  frontend:
+    container_name: frontend
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    image: kpd-frontend-release:1.0.0
+    env_file: .env
+    restart: always
+    ports:
+      - '8081:80'
+    networks:
+      - default
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    env_file: .env
+    restart: always
+    networks:
+     - backend
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/pgdata
+
+networks:
+  backend:
+  default:
+
+volumes:
+  postgres_data:
